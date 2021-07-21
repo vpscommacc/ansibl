@@ -1,0 +1,8 @@
+---
+- name: Docker Install
+  shell: # открываем интерпретатор для выполнения команд
+    cmd: | # выполняем команды
+      curl https://get.docker.com > docker-install.sh
+      chmod +x docker-install.sh
+      bash docker-install.sh
+  when: "'206.189.117.231' in inventory_hostname" # условие для выполнения команд

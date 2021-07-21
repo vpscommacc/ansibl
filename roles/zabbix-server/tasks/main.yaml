@@ -1,0 +1,26 @@
+---
+- name: Mkdir zabbix
+  file:
+    path: /opt/zabbix
+    state: directory
+  when: "'206.189.117.231' in inventory_hostname"
+- name: Mkdir zabbix
+  file:
+    path: /opt/zabbix/src
+    state: directory
+  when: "'206.189.117.231' in inventory_hostname"
+- name: Mkdir zabbix
+  file:
+    path: /opt/zabbix/src/mysql
+    state: directory
+  when: "'206.189.117.231' in inventory_hostname"
+- name: Copy compose
+  copy:
+    src: files/docker-compose.yml
+    dest: /opt/zabbix
+  when: "'206.189.117.231' in inventory_hostname"
+- name: Upping zabbix
+  shell:
+    cmd: docker-compose up -d
+    chdir: /opt/zabbix/
+  when: "'206.189.117.231' in inventory_hostname"

@@ -1,0 +1,6 @@
+---
+ansible_user: "root"
+ansible_password: Putyour!other8uckingHandsinthesky
+zabbix_server: 206.189.117.231
+zabbix_server_active: 206.189.117.231
+hostname: zabbix_agent

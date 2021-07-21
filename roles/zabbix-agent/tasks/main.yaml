@@ -1,0 +1,14 @@
+---
+- name: Install zabbix-agent
+  apt: # выполнение apt install
+    name: zabbix-agent # название устанавливаемого ПО
+    update_cache: yes # apt update выражаясь проще
+
+- name: Template agentd.conf
+  template: # прописываем шаблон
+    src: zabbix_agentd.conf # файл шаблон
+    dest: /etc/zabbix/zabbix_agentd.conf # прописываем путь к шаблону
+
+- name: Upping zabbix
+  shell: # выполнение команд в интерпретаторе shell
+    cmd: service zabbix-agent restart # сама команда

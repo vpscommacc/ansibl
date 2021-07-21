@@ -1,0 +1,6 @@
+---
+- name: Docker-compose install
+  apt: # выполнение команды на установку
+    name: docker-compose # что устанавливаем
+    update_cache: yes # apt update
+  when: "'206.189.117.231' in inventory_hostname" # условие для выполнения
